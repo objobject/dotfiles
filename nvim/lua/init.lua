@@ -4,8 +4,15 @@ vim.cmd([[
   set hidden
   set nocp
   set relativenumber number
+  set autowriteall
 ]])
 
 require("config.lazy")
 
-require("lspconfig").pyright.setup{}
+local lspconfig = require("lspconfig")
+
+lspconfig.pyright.setup {}
+lspconfig.tsserver.setup {}
+
+-- Setup Telescope file browser
+require("telescope").load_extension("file_browser")
